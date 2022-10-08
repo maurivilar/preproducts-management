@@ -1,0 +1,16 @@
+{
+    "preproducts": [
+      {
+        "name": "arroz con leche",
+        "price": "2.25",
+        "format": "embasado",
+        "brand": "Hacendado"
+      },
+      {
+        "name": "arroz con leche picante",
+        "price": "2.50",
+        "format": "embasado",
+        "brand": "Hacendado"
+      }
+    ]
+  }
