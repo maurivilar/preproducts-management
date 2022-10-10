@@ -1,0 +1,25 @@
+// src/theme.scss
+
+$theming-material-components-primary: mat-palette($mat-green);
+$theming-material-components-accent: mat-palette($mat-pink, A200, A100, A400);
+$theming-material-components-warn: mat-palette($mat-red);
+
+$theming-material-components-theme: mat-light-theme(
+  $theming-material-components-primary,
+  $theming-material-components-accent,
+  $theming-material-components-warn
+);
+
+$dark-primary: mat-palette($mat-blue-grey);
+$dark-accent: mat-palette($mat-amber, A200, A100, A400);
+$dark-warn: mat-palette($mat-deep-orange);
+$dark-theme: mat-dark-theme(
+  (
+    color: (
+      primary: $dark-primary,
+      accent: $dark-accent,
+      warn: $dark-warn,
+    ),
+  )
+);
+

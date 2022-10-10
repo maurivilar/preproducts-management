@@ -1,0 +1,41 @@
+<app-navbar></app-navbar>
+
+<section class="container">
+    <form id="addPreproduct" [formGroup]="preproductForm" (ngSubmit)="add()">
+        <div class="grid">
+            <div>
+                <mat-form-field>
+                    <mat-label>Name</mat-label>
+                    <input matInput autocomplete="off" formControlName="name">
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field>
+                    <mat-label>Price</mat-label>
+                    <input type="number" step="0.1" matInput autocomplete="off" formControlName="price">
+                </mat-form-field>
+                
+            </div>
+            <div>
+                <mat-form-field>
+                    <mat-label>Container</mat-label>
+                    <input matInput autocomplete="off" formControlName="container">
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field>
+                    <mat-label>Brand</mat-label>
+                    <input matInput autocomplete="off" formControlName="brand">
+                </mat-form-field>
+            </div>
+        </div>
+        <div>
+            <button type="submit" color="primary" [disabled]="preproductForm.invalid" form="addPreproduct" class="btn" mat-raised-button>
+                Add
+            </button>
+            <button type="button" mat-raised-button class="btn" routerLink="/preproduct/">
+                Go back
+            </button>
+        </div>
+    </form>
+</section>

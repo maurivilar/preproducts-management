@@ -1,0 +1,69 @@
+<app-navbar></app-navbar>
+
+<section class="container">
+    
+    <div class="actions-container">
+        <button class="btn" mat-raised-button color="primary" routerLink="/preproduct/add">
+            <mat-icon>add</mat-icon> Add
+        </button>
+    </div>
+    <mat-table 
+        [dataSource]="dataSource" cdkDropList 
+        cdkDropListOrientation="horizontal"
+        (cdkDropListDropped)="dropColumn($event)"
+        matSort 
+        (matSortChange)="sortColumn($event)"
+        class="mat-elevation-z8">
+
+        <ng-container *ngFor="let column of columns; let i = index"
+            [matColumnDef]="column.name">
+
+            <ng-container [ngSwitch]="column.name">
+                
+                <ng-container *ngSwitchCase="'actions'">
+                    <mat-header-cell *matHeaderCellDef cdkDrag cdkDragLockAxis="x" cdkDragBoundary="mat-header-row">
+                        {{ column.name | titlecase }}
+                    </mat-header-cell>
+
+                    <mat-cell *matCellDef="let element">
+                        <a class="pointer" (click)="deletePreproduct(element)"><mat-icon>delete</mat-icon></a>
+                    </mat-cell>
+                </ng-container>
+
+                <ng-container *ngSwitchDefault>
+                    <mat-header-cell *matHeaderCellDef cdkDrag mat-sort-header cdkDragLockAxis="x" sortActionDescription="Sort by name" cdkDragBoundary="mat-header-row">
+                        {{ column.name | titlecase }}
+                    </mat-header-cell>
+                    
+                    <ng-container [ngSwitch]="column.name">
+                        
+                        <ng-container *ngSwitchCase="'price'">
+                            <mat-cell *matCellDef="let element">
+                                {{ element[column.name]  | currency: 'EUR':'symbol':undefined:'es-ES' }} 
+                            </mat-cell>
+                        </ng-container>
+
+                        <ng-container *ngSwitchDefault>
+                            <mat-cell *matCellDef="let element">
+                                {{ element[column.name] }} 
+                            </mat-cell>
+                        </ng-container>
+
+                    </ng-container>
+                </ng-container>
+
+            </ng-container>
+                
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns" class="tableHeaderRow" #tableHeaderRow></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+    </mat-table>
+
+    <mat-paginator #paginator
+        [pageSizeOptions]="[5, 10, 25, 100]"
+        [pageIndex]="0"
+        [pageSize]="5">
+    </mat-paginator>
+</section>
