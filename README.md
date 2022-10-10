@@ -12,18 +12,18 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The appli
 
 ## Run fake API
 
-npm run api
+npm run api<br>
 Fake JSON in api/dbMockup.json
 
 ## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).<br>
 Only some tests in preproduct-add-component and preproduct-list-component
 
 ## Used libraries
 
-Angular
-Angular-Material
+Angular<br>
+Angular-Material<br>
 JSON-Sever
 
 
